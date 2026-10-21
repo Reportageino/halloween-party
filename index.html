@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111014">
-  <title>مهمونی هالووین | فهرست مهمان‌ها</title>
+  <title>مهمونی هالووین | فهرست شرکت‌کنندگان</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,37 +29,31 @@
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">یک شب، کلی خاطره</p>
-        <h1>فهرست <span>مهمون‌ها</span></h1>
+        <h1>فهرست <span>شرکت‌کنندگان</span></h1>
         <p class="hero-sub">همه آماده‌ان برای شبی کمی ترسناک و خیلی خاطره‌انگیز؟</p>
-        <div class="hero-tags"><span>✦ فهرست مهمان‌ها</span><span>✦ میزبان‌ها</span><span>✦ حال‌وهوای هالووین</span></div>
+        <div class="hero-tags"><span>✦ فهرست شرکت‌کنندگان</span><span>✦ نفر اصلی و زیرمجموعه</span><span>✦ حال‌وهوای هالووین</span></div>
       </div>
       <button id="skull" class="skull" type="button" aria-label="تعامل با اسکلت">☠️<span class="skull-spark">✦</span></button>
       <div class="hero-orbit"></div>
     </section>
 
     <section class="stats" aria-label="آمار مهمانی">
-      <article class="stat-card"><span class="stat-icon">👥</span><div><small>مهمان‌های اصلی</small><strong id="primaryCount">—</strong></div></article>
-      <article class="stat-card"><span class="stat-icon">🕸️</span><div><small>کل مهمان‌ها با زیرمجموعه</small><strong id="guestCount">—</strong></div></article>
-      <article class="stat-card"><span class="stat-icon">🦇</span><div><small>تعداد میزبان‌ها</small><strong id="hostCount">—</strong></div></article>
+      <article class="stat-card"><span class="stat-icon">👤</span><div><small>تعداد نفرات اصلی</small><strong id="primaryCount">—</strong></div></article>
+      <article class="stat-card"><span class="stat-icon">👥</span><div><small>کل شرکت‌کنندگان</small><strong id="guestCount">—</strong></div></article>
+      <article class="stat-card"><span class="stat-icon">🕸️</span><div><small>تعداد زیرمجموعه‌ها</small><strong id="hostCount">—</strong></div></article>
     </section>
 
     <section class="section-head">
-      <div><p class="eyebrow">GUEST LIST</p><h2>مهمان‌ها</h2><p class="section-desc">نام‌ها و تعداد افراد برای همه قابل مشاهده است.</p></div>
-      <button id="addGuestBtn" class="button button-primary admin-only hidden" type="button">＋ افزودن مهمان</button>
+      <div><p class="eyebrow">PARTICIPANTS</p><h2>شرکت‌کنندگان</h2><p class="section-desc">فهرست یکپارچه؛ نام نفرات اصلی درشت‌تر و زیرمجموعه‌ها زیر نام آن‌ها نمایش داده می‌شوند.</p></div>
+      <button id="addGuestBtn" class="button button-primary admin-only hidden" type="button">＋ افزودن شرکت‌کننده</button>
     </section>
-    <div id="guestList" class="guest-list"><div class="loading-card">در حال بارگذاری فهرست مهمان‌ها…</div></div>
-
-    <section class="section-head hosts-head">
-      <div><p class="eyebrow">HOSTS</p><h2>میزبان‌ها</h2><p class="section-desc">میزبان‌های این شب خاص.</p></div>
-      <button id="addHostBtn" class="button button-primary admin-only hidden" type="button">＋ افزودن میزبان</button>
-    </section>
-    <div id="hostList" class="host-list"><div class="loading-card">در حال بارگذاری میزبان‌ها…</div></div>
+    <div id="guestList" class="guest-list"><div class="loading-card">در حال بارگذاری فهرست شرکت‌کنندگان…</div></div>
 
     <section id="adminFinance" class="finance-panel hidden">
       <div class="section-head finance-head"><div><p class="eyebrow">ADMIN ONLY</p><h2>گزارش پرداخت‌ها</h2><p class="section-desc">این بخش فقط برای ادمین واردشده نمایش داده می‌شود.</p></div><span class="private-chip">🔒 خصوصی</span></div>
       <div class="finance-grid">
-        <article class="finance-card"><small>پرداخت مهمان‌ها</small><strong id="guestMoney">۰ تومان</strong></article>
-        <article class="finance-card"><small>پرداخت میزبان‌ها</small><strong id="hostMoney">۰ تومان</strong></article>
+        <article class="finance-card"><small>پرداخت شرکت‌کنندگان</small><strong id="guestMoney">۰ تومان</strong></article>
+        <article class="finance-card"><small>پرداخت‌های ثبت‌شدهٔ قدیمی</small><strong id="hostMoney">۰ تومان</strong></article>
         <article class="finance-card finance-total"><small>مجموع کل دریافتی</small><strong id="allMoney">۰ تومان</strong></article>
       </div>
     </section>
@@ -82,10 +76,10 @@
   <dialog id="personDialog" class="dialog">
     <form id="personForm" class="dialog-card">
       <button class="dialog-close" type="button" data-close="personDialog" aria-label="بستن">×</button>
-      <span id="personEmoji" class="dialog-emoji">🎃</span><p class="eyebrow">PARTY ROSTER</p><h2 id="personDialogTitle">افزودن مهمان</h2>
+      <span id="personEmoji" class="dialog-emoji">🎃</span><p class="eyebrow">PARTY ROSTER</p><h2 id="personDialogTitle">افزودن شرکت‌کننده</h2>
       <input id="personId" type="hidden"><input id="personType" type="hidden" value="guest">
       <label for="personName">نام و نام خانوادگی</label><input id="personName" type="text" maxlength="100" required placeholder="مثلاً آرمان رضایی">
-      <div id="parentFieldWrap"><label for="parentSelect">زیرمجموعهٔ کدام مهمان اصلی است؟</label><select id="parentSelect"><option value="">مهمان اصلی (بدون والد)</option></select></div>
+      <div id="parentFieldWrap"><label for="parentSelect">زیرمجموعهٔ کدام نفر اصلی است؟</label><select id="parentSelect"><option value="">نفر اصلی (بدون والد)</option></select></div>
       <div class="admin-money-field"><label for="personAmount">مبلغ پرداختی (تومان)</label><input id="personAmount" type="text" inputmode="numeric" placeholder="مثلاً ۱٬۵۰۰٬۰۰۰"><small>برای پرداخت‌نشده، عدد ۰ وارد کن.</small></div>
       <p id="personError" class="error-message"></p>
       <div class="dialog-buttons"><button class="button button-quiet" type="button" data-close="personDialog">انصراف</button><button class="button button-primary" type="submit">ذخیره</button></div>
