@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111014">
+  <title>مهمونی هالووین | فهرست مهمان‌ها</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="صفحه اصلی">
+      <button id="pumpkin" class="pumpkin" type="button" aria-label="تکان دادن کدو">🎃</button>
+      <span><b>مهمونی هالووین</b><small>HALLOWEEN NIGHT · 2026</small></span>
+    </a>
+    <div class="top-actions">
+      <span id="connection" class="connection"><i></i> در حال اتصال</span>
+      <button id="adminOpen" class="button button-quiet" type="button">ورود ادمین</button>
+      <button id="logoutBtn" class="button button-quiet hidden" type="button">خروج</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">یک شب، کلی خاطره</p>
+        <h1>فهرست <span>مهمون‌ها</span></h1>
+        <p class="hero-sub">همه آماده‌ان برای شبی کمی ترسناک و خیلی خاطره‌انگیز؟</p>
+        <div class="hero-tags"><span>✦ فهرست مهمان‌ها</span><span>✦ میزبان‌ها</span><span>✦ حال‌وهوای هالووین</span></div>
+      </div>
+      <button id="skull" class="skull" type="button" aria-label="تعامل با اسکلت">☠️<span class="skull-spark">✦</span></button>
+      <div class="hero-orbit"></div>
+    </section>
+
+    <section class="stats" aria-label="آمار مهمانی">
+      <article class="stat-card"><span class="stat-icon">👥</span><div><small>مهمان‌های اصلی</small><strong id="primaryCount">—</strong></div></article>
+      <article class="stat-card"><span class="stat-icon">🕸️</span><div><small>کل مهمان‌ها با زیرمجموعه</small><strong id="guestCount">—</strong></div></article>
+      <article class="stat-card"><span class="stat-icon">🦇</span><div><small>تعداد میزبان‌ها</small><strong id="hostCount">—</strong></div></article>
+    </section>
+
+    <section class="section-head">
+      <div><p class="eyebrow">GUEST LIST</p><h2>مهمان‌ها</h2><p class="section-desc">نام‌ها و تعداد افراد برای همه قابل مشاهده است.</p></div>
+      <button id="addGuestBtn" class="button button-primary admin-only hidden" type="button">＋ افزودن مهمان</button>
+    </section>
+    <div id="guestList" class="guest-list"><div class="loading-card">در حال بارگذاری فهرست مهمان‌ها…</div></div>
+
+    <section class="section-head hosts-head">
+      <div><p class="eyebrow">HOSTS</p><h2>میزبان‌ها</h2><p class="section-desc">میزبان‌های این شب خاص.</p></div>
+      <button id="addHostBtn" class="button button-primary admin-only hidden" type="button">＋ افزودن میزبان</button>
+    </section>
+    <div id="hostList" class="host-list"><div class="loading-card">در حال بارگذاری میزبان‌ها…</div></div>
+
+    <section id="adminFinance" class="finance-panel hidden">
+      <div class="section-head finance-head"><div><p class="eyebrow">ADMIN ONLY</p><h2>گزارش پرداخت‌ها</h2><p class="section-desc">این بخش فقط برای ادمین واردشده نمایش داده می‌شود.</p></div><span class="private-chip">🔒 خصوصی</span></div>
+      <div class="finance-grid">
+        <article class="finance-card"><small>پرداخت مهمان‌ها</small><strong id="guestMoney">۰ تومان</strong></article>
+        <article class="finance-card"><small>پرداخت میزبان‌ها</small><strong id="hostMoney">۰ تومان</strong></article>
+        <article class="finance-card finance-total"><small>مجموع کل دریافتی</small><strong id="allMoney">۰ تومان</strong></article>
+      </div>
+    </section>
+
+    <footer><span>ساخته‌شده برای یک شب هالووینی فراموش‌نشدنی</span><span class="footer-bat">𓆩🦇𓆪</span></footer>
+  </main>
+
+  <dialog id="loginDialog" class="dialog">
+    <form id="loginForm" class="dialog-card">
+      <button class="dialog-close" type="button" data-close="loginDialog" aria-label="بستن">×</button>
+      <span class="dialog-emoji">🔐</span><p class="eyebrow">ADMIN ACCESS</p><h2>ورود مدیر</h2>
+      <p class="dialog-note">با ایمیل و رمز عبور حساب مدیر وارد شو.</p>
+      <label for="loginEmail">ایمیل مدیر</label><input id="loginEmail" type="email" autocomplete="username" required placeholder="admin@example.com">
+      <label for="loginPassword">رمز عبور</label><input id="loginPassword" type="password" autocomplete="current-password" required placeholder="رمز عبور">
+      <p id="loginError" class="error-message"></p>
+      <button class="button button-primary button-full" type="submit">ورود به پنل</button>
+    </form>
+  </dialog>
+
+  <dialog id="personDialog" class="dialog">
+    <form id="personForm" class="dialog-card">
+      <button class="dialog-close" type="button" data-close="personDialog" aria-label="بستن">×</button>
+      <span id="personEmoji" class="dialog-emoji">🎃</span><p class="eyebrow">PARTY ROSTER</p><h2 id="personDialogTitle">افزودن مهمان</h2>
+      <input id="personId" type="hidden"><input id="personType" type="hidden" value="guest">
+      <label for="personName">نام و نام خانوادگی</label><input id="personName" type="text" maxlength="100" required placeholder="مثلاً آرمان رضایی">
+      <div id="parentFieldWrap"><label for="parentSelect">زیرمجموعهٔ کدام مهمان اصلی است؟</label><select id="parentSelect"><option value="">مهمان اصلی (بدون والد)</option></select></div>
+      <div class="admin-money-field"><label for="personAmount">مبلغ پرداختی (تومان)</label><input id="personAmount" type="text" inputmode="numeric" placeholder="مثلاً ۱٬۵۰۰٬۰۰۰"><small>برای پرداخت‌نشده، عدد ۰ وارد کن.</small></div>
+      <p id="personError" class="error-message"></p>
+      <div class="dialog-buttons"><button class="button button-quiet" type="button" data-close="personDialog">انصراف</button><button class="button button-primary" type="submit">ذخیره</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="confirmDialog" class="dialog">
+    <div class="dialog-card"><span class="dialog-emoji">⚠️</span><h2>حذف این مورد؟</h2><p id="confirmText" class="dialog-note">این عملیات قابل بازگشت نیست.</p><div class="dialog-buttons"><button class="button button-quiet" type="button" data-close="confirmDialog">انصراف</button><button id="confirmDelete" class="button button-danger" type="button">حذف</button></div></div>
+  </dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
