@@ -1,5 +1,5 @@
 
 window.APP_CONFIG = {
   SUPABASE_URL: "https://hqdavzdlvzfwsiwcpewj.supabase.co",
-  SUPABASE_ANON_KEY: "کلید کامل Publishable خودت را اینجا قرار بده"
+  SUPABASE_ANON_KEY: "sb_publishable_H3hgrMc9cSNd7NgQKHY28w_OJv_wckL"
 };
